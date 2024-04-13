@@ -1,0 +1,46 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Restart docker",
+            "type": "shell",
+            "command": "docker-compose -f docker-compose.yml -f docker-compose.override.yml restart web",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Setup Environement",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "./setup.py",
+                "${input:odooVersion}",
+                "${input:odooFolder}",
+                "${input:odooEnterpriseFolder}",
+            ],
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "odooVersion",
+            "description": "Input your Odoo version",
+        },
+        {
+            "type": "promptString",
+            "id": "odooFolder",
+            "description": "Absolute path to your Odoo folder",
+        },
+        {
+            "type": "promptString",
+            "id": "odooEnterpriseFolder",
+            "description": "Absolute path to your Odoo Enterprise folder",
+        }
+    ]
+}

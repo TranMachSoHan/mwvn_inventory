@@ -1,0 +1,6 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    entrypoint: ["bash", "/mnt/extra-addons/lint.sh", "/mnt/extra-addons"]

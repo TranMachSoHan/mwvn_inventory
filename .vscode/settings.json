@@ -1,0 +1,14 @@
+{
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.autoComplete.extraPaths": [
+        "/home/dennis/media/odoo/odoo16",
+        "/home/dennis/media/odoo/odoo16/addons",
+        "/home/dennis/media/odoo/enterprise16"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/dennis/media/odoo/odoo16",
+        "/home/dennis/media/odoo/odoo16/addons",
+        "/home/dennis/media/odoo/enterprise16"
+    ]
+}

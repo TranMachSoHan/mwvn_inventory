@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  web:
+    depends_on:
+      - db
+  db:
+    image: postgres:14.4
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata

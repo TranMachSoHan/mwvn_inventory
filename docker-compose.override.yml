@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    tty: true
+    ports:
+      - "8829:3001"
+      - "8020:8069"
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+      - ./odoo.conf:/etc/odoo/odoo.conf
+    entrypoint: ["/usr/bin/python3", "-m", "debugpy", "--listen", "0.0.0.0:3001", "/usr/bin/odoo", "--db_user=odoo", "--db_host=db", "--db_password=odoo", "-c", "/etc/odoo/odoo.conf"]
+  db:
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "9002:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+
+volumes:
+  odoo-web-data:
+  odoo-db-data:

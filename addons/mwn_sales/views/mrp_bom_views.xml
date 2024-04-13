@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mrp_bom_form_view_inherit_mwn_sales" model="ir.ui.view">
+        <field name="name">mrp.bom.form.inherit</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='bom_line_ids']//tree/field[@name='product_qty']" position="after">
+                <field name="inseam_id" optional="show" options="{'no_open': True, 'no_create': True}" />
+                <field name="size_id" optional="show" options="{'no_open': True, 'no_create': True}" />
+                <!-- <field name="inseam_id" column_invisible="parent.product_id.categ_id != %(product.product_category_1)d"/> -->
+            </xpath>
+            <xpath expr="//field[@name='bom_line_ids']" position="before">
+                <button name="action_open_wizard_generate_sale_order_line_product_attributes" 
+                    string="Tạo dòng đơn hàng" 
+                    type="object" class="px-4" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

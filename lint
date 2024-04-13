@@ -1,0 +1,3 @@
+#!/bin/sh
+docker login registry.gitlab.com
+docker-compose -f docker-compose.lint.yml up --build

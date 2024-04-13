@@ -1,0 +1,6 @@
+debugpy
+pylint-odoo==7.0.0
+pylint-gitlab
+pylint-exit
+debugpy
+openpyxl
